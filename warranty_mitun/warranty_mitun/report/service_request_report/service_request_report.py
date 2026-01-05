@@ -1,6 +1,7 @@
 import frappe
 from frappe.utils import today, date_diff, getdate
 
+
 def execute(filters=None):
     columns = get_columns()
     data = get_data(filters)
@@ -9,65 +10,43 @@ def execute(filters=None):
 
 def get_columns():
     return [
-        {
-            "label": "Request Date",
-            "fieldname": "request_date",
-            "fieldtype": "Date",
-            "width": 110
-        },
-        {
-            "label": "Customer",
-            "fieldname": "customer",
-            "fieldtype": "Link",
-            "options": "Customer",
-            "width": 180
-        },
-        {
-            "label": "Item",
-            "fieldname": "item",
-            "fieldtype": "Link",
-            "options": "Item",
-            "width": 120
-        },
-        {
-            "label": "Warranty Expiry Date",
-            "fieldname": "warranty_expiry_date",
-            "fieldtype": "Date",
-            "width": 150
-        },
-        {
-            "label": "Service Status",
-            "fieldname": "service_status",
-            "fieldtype": "Data",
-            "width": 120
-        },
-        {
-            "label": "Warranty Status",
-            "fieldname": "warranty_status",
-            "fieldtype": "Data",
-            "width": 140
-        },
-        {
-            "label": "Days Until Expiry",
-            "fieldname": "days_until_expiry",
-            "fieldtype": "Int",
-            "width": 140
-        },
+        {"label": "Request Date", "fieldname": "request_date", "fieldtype": "Date", "width": 110},
+        {"label": "Customer", "fieldname": "customer", "fieldtype": "Link", "options": "Customer", "width": 180},
+        {"label": "Item", "fieldname": "item", "fieldtype": "Link", "options": "Item", "width": 120},
+        {"label": "Warranty Expiry Date", "fieldname": "warranty_expiry_date", "fieldtype": "Date", "width": 150},
+        {"label": "Service Status", "fieldname": "service_status", "fieldtype": "Data", "width": 120},
+        {"label": "Warranty Status", "fieldname": "warranty_status", "fieldtype": "Data", "width": 140},
+        {"label": "Days Until Expiry", "fieldname": "days_until_expiry", "fieldtype": "Int", "width": 140},
     ]
 
 
 def get_data(filters):
-    if not filters:
-        filters = {}
+    filters = filters or {}
+
+    sr_filters = {"docstatus": ["<", 2]}
+
+    # 🔹 From / To Date filter
+    if filters.get("from_date"):
+        sr_filters["request_date"] = [">=", filters.get("from_date")]
+
+    if filters.get("to_date"):
+        sr_filters.setdefault("request_date", [])
+        sr_filters["request_date"] = ["between", [filters.get("from_date"), filters.get("to_date")]]
+
+    # 🔹 Customer filter
+    if filters.get("customer"):
+        sr_filters["customer"] = filters.get("customer")
+
+    # 🔹 Service Status filter
+    if filters.get("service_status"):
+        sr_filters["service_status"] = filters.get("service_status")
 
     data = []
 
     service_requests = frappe.get_all(
         "Service Request",
         fields=["name", "request_date", "customer", "service_status"],
-        filters={
-            "docstatus": ["<", 2]
-        }
+        filters=sr_filters
     )
 
     for sr in service_requests:
@@ -89,7 +68,7 @@ def get_data(filters):
                     warranty_status = "In Warranty"
                     days_until_expiry = date_diff(expiry_date, today_date)
 
-            # Filter: Warranty Status
+            # 🔹 Warranty Status filter
             if filters.get("warranty_status") and filters.get("warranty_status") != warranty_status:
                 continue
 
