@@ -1,0 +1,110 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "label": "Request Date",
+   "width": 0
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "width": 0
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "width": 0
+  },
+  {
+   "fieldname": "warranty_expiry_date",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry Date",
+   "width": 0
+  },
+  {
+   "fieldname": "service_status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "width": 0
+  },
+  {
+   "fieldname": "warranty_status",
+   "fieldtype": "Data",
+   "label": "Warranty Status",
+   "width": 0
+  },
+  {
+   "fieldname": "days_until_expiry",
+   "fieldtype": "Int",
+   "label": "Days Until Expiry",
+   "width": 0
+  }
+ ],
+ "creation": "2026-01-02 17:44:50.105408",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "mandatory": 0,
+   "options": "Customer",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "warranty_status",
+   "fieldtype": "Select",
+   "label": "Warranty Status",
+   "mandatory": 0,
+   "options": "In Warranty\nOut of Warranty",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "service_status",
+   "fieldtype": "Select",
+   "label": "Service Status",
+   "mandatory": 0,
+   "options": "Draft\nOpen\nIn Progress\nCompleted\nCancelled",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2026-01-02 17:57:44.089182",
+ "modified_by": "Administrator",
+ "module": "Warranty Mitun",
+ "name": "Service Request Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Service Request",
+ "report_name": "Service Request Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

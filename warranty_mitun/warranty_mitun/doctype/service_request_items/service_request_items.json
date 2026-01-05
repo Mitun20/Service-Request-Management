@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-31 17:19:33.118429",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "warranty_expiry_date",
+  "issue_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warranty_expiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Warranty Expiry Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "issue_description",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Issue Description"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-02 12:25:02.048295",
+ "modified_by": "Administrator",
+ "module": "Warranty Mitun",
+ "name": "Service Request Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

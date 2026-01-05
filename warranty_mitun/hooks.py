@@ -136,6 +136,15 @@ app_license = "mit"
 # Document Events
 # ---------------
 # Hook on document methods and events
+doc_events = {
+    "Sales Invoice": {
+        "on_submit": "warranty_mitun.sales_invoice.calculate_warranty_expiry"
+    }
+}
+# hooks.py
+report_js = {
+    "Service Request Report": "warranty/report/service_request_report/service_request_report.js"
+}
 
 # doc_events = {
 # 	"*": {
