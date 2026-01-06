@@ -6,7 +6,7 @@
 
 // 	},
 // });
-console.log("Service Request JS Loaded");
+// console.log("Service Request JS Loaded");
 
 frappe.ui.form.on("Service Request", {
     sales_invoice(frm) {

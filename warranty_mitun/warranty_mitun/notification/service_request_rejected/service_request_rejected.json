@@ -1,0 +1,33 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "doc.workflow_status == \"Rejected\"\n",
+ "creation": "2026-01-05 16:49:13.920101",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Service Request",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Hello,</p>\n\n<p>The Service Request <b>{{ doc.name }}</b> has been <b>Rejected</b>.</p>\n\n<p>Please contact the admin for further details.</p>\n\n<p>Regards,<br>\nERP System</p>\n",
+ "message_type": "HTML",
+ "modified": "2026-01-05 16:49:13.920101",
+ "modified_by": "Administrator",
+ "module": "Warranty Mitun",
+ "name": "Service Request Rejected",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner"
+  },
+  {
+   "receiver_by_role": "System Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Service Request {{ doc.name }} Rejected",
+ "value_changed": "workflow_status"
+}

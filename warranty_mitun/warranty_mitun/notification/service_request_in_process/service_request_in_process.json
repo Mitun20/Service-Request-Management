@@ -1,0 +1,30 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "doc.service_status == \"In Progress\"",
+ "creation": "2026-01-05 17:53:34.980416",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Service Request",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Hello,</p>\n\n<p>The Service Request <b>{{ doc.name }}</b> has been <b>In Proress</b>.</p>\n\n<p>Please make further Process.</p>\n\n<p>Regards,<br>\nERP System</p>",
+ "message_type": "HTML",
+ "modified": "2026-01-05 17:53:34.980416",
+ "modified_by": "Administrator",
+ "module": "Warranty Mitun",
+ "name": "Service Request In Process",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "Service Request Approver"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Service Request {{ doc.name }} In Progress",
+ "value_changed": "service_status"
+}
